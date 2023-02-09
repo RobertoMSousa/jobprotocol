@@ -1,5 +1,4 @@
 import Head from "next/head";
-import LinkMenu from "../components/LinkMenu";
 import { useFetchRecruiter } from "../hooks/useRecruiter";
 import { Recruiter } from "../interfaces/recruiter";
 
@@ -19,7 +18,7 @@ const Home = () => {
               <h2>
                 {recruiter.totalCandidates >= 20
                   ? `${recruiter.reputation} points`
-                  : `initializing`}
+                  : `Initializing`}
               </h2>
             </div>
           );
