@@ -5,6 +5,6 @@ import { bubble_user } from '../interfaces'
 
 
 
-export const getAllRecruiters = async (): Promise<bubble_user[]> => {
-    return await service.getAllRecruiters()
+export const getAllRecruiters = async (page: number): Promise<bubble_user[]> => {
+    return await service.getAllRecruiters(page)
 }

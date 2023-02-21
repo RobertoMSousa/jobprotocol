@@ -2,11 +2,17 @@
 import { bubble_candidate, bubble_user } from '../models'
 import { RecruiterOuput } from '../models/Recruiter'
 
+const recruiterQueryLimit = 20;
 
-export const getAllRecruiters = async (): Promise<RecruiterOuput[]> => {
+
+export const getAllRecruiters = async (page: number): Promise<RecruiterOuput[]> => {
+    console.log("🚀  roberto --  ~ file: recruiter.ts:7 ~ getAllRecruiters ~ page", page)
     try {
+        const offset = (page - 1) * recruiterQueryLimit;
         const user = await bubble_user.findAll({
             where: { type: "Recruiter" },
+            limit: recruiterQueryLimit,
+            offset,
             include: [{
                 required: false,
                 model: bubble_candidate
